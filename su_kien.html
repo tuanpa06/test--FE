@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sự kiện</title>
+</head>
+<body>
+    <!-- Sử lý sự kiện -->
+     <!--Cách 1: Sử lý sự kiện cho các thẻ html  -->
+    <input type="submit" value="Button 1" onclick="alert('Hello')"> 
+
+     <!--Cách 2: Sử lý sự kiện bằng hàm(function)  -->
+    <input type="submit" value="Button 2" onclick="showMessage('Xin chào')">
+    <script>
+        function showMessage(message){
+            alert(message);
+        }
+    </script> 
+
+     <!--Cách 3: sử lý sự kiện bằng addEventListener  -->
+    <input type="submit" value="Button 3" id="myButton">
+    <script>
+        function showMessage(message){
+            alert(message);
+        }
+        let button = document.getElementById("myButton");
+        button.addEventListener('click',()=>{
+            alert("bạn đã click button 3")
+        })
+    </script> 
+
+    <!-- Ngăn chặn hành vi mặc định -->
+    <a href="https://dantri.com.vn/" id="myLink">Báo dân trí</a> 
+    <script>
+        document.getElementById("myLink").addEventListener('click',(event)=>{
+            event.preventDefault(); //ngăn hành vi mặc định (chuyển hướng)
+            alert("Bạn đã chọn báo dân trí")
+        });
+    </script>
+</body>
+</html>
