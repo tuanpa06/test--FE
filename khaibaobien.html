@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khai báo biến</title>
+</head>
+<body>
+    <script>    
+        //khai báo biến có 3 cách:
+        var a = 1
+        let b = 2
+        const c = 3 
+        //sự khác nhau giữa 3 cách khai báo
+        //1. scope
+        {
+            var d = 4 
+            let e = 5
+            const f = 6
+            
+        }
+        console.log("d =",d)  //ok
+        //console.log("e =",e)//error
+        //console.log("f =",f)//error
+
+        //2. hoisting
+        g = 7 //var thì dùng trc khai báo sau
+        var g
+        console.log("g =",g)
+        //đối vs let và const thì phải khai báo trc
+        //h = 8 //error
+        //let h
+        //console.log("h =",h)
+
+        //3. assignment
+        var x = 10
+        let y = 11
+        y = 200
+        const z = 12
+        //z = 300 (error)-> vì z là hằng số
+    </script>
+</body>
+</html>

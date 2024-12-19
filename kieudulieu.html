@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểu dữ liệu</title>
+</head>
+<body>
+    <script>
+        let x = 5
+        console.log(typeof x)  //number
+        x = "Nguyen Van A"
+        console.log(typeof x)  //string
+        x = (7>2)
+        console.log(typeof x)  //boolean
+        x = {
+            "name":"Pham Anh Tuan",
+            "age": 18
+        }
+        console.log(typeof x)  //object
+        let y
+        console.log(typeof x)  //undefined
+
+
+
+        //CHUYỂN KIỂU DỮ LIỆU : là chuyển từ kiểu này sang kiểu khác
+        // - chuyển kiểu tường minh
+        // - chuyển kiểu tự động
+
+        //1. chuyển kiểu tường minh (sử dụng các hàm có sẵn)
+        //- Chuyển sang số (number)
+        let s = "540"
+        console.log(typeof s)  //string
+        let n = parseInt(s)
+        let n2 = parseFloat("52.3")
+        let n3 = Number("40")
+        //- Chuyển sang chuỗi (string)
+        let n4 = 43
+        let s1 = String (n4)
+        //- chuyển sang boolean
+        let n5 = 1
+        let b1 = Boolean(n5)
+        console.log(typeof b1)
+
+        //2. chuyển kiểu ngầm định (tự động)
+        //- Trong phép cộng chuỗi
+        let n6 = 20
+        let n7 = "30"
+        let n8 = n6 + n7  //"2030"
+        console.log(typeof n8)
+        //- Trong phép toán số học
+        let n9 = 5
+        let n10 = "6"
+        let n11 = n9 * n10
+        console.log("n11 =",n11)
+        //- Trong các phép so sánh
+        console.log(n9==n10
+            
+        )
+    </script>
+</body>
+</html>
