@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hàm</title>
+</head>
+<body>
+    <script>
+        //CÁC CÁCH ĐỊNH NGHĨA HÀM
+        //-Cách 1: Function declaration
+        function sayHello(name){
+            console.log("Hello,",name)
+        }
+        //Gọi hàm
+        sayHello("Tuấn")
+
+        //- Cách 2: function expression (biểu thức hàm)
+        let tinhTong = function(x,y){
+            return x + y
+        }
+        // Gọi hàm
+        console.log("Kết quả:", tinhTong(3,4))
+
+        //- Cách 3: Arrow function
+        let tinhTong = function(x,y){
+            return x + y
+        }
+        let tinhTong = (x,y) => x + y
+    </script>
+</body>
+</html>
