@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cấu trúc lặp</title>
+</head>
+<body>
+    <script>
+        //Khai báo mảng
+        const names = ["Tuấn", "Dũng", "Hùng", "Hoàng", "Hương"];
+        //1.Cấu trúc lặp For
+        for(let i = 0; i < names.length;i++){
+            console.log(names[i]);
+        }
+
+        //2.Cấu trúc lặp while
+        let i = 0;
+        while(i < names.length){
+            console.log(names[i]);
+            i++;
+        }
+
+        //3.Cấu trúc lặp do...while
+        let i = 0;
+        do{
+            console.log(names[i])
+            i++
+        }while(i < names.length)
+
+
+        //4.Cấu trúc lặp for..in: 
+        //Dùng để lặp qua các phần tử của mảng hoặc để lặp qua các thuộc tính của 1 đối tượng
+        //- Lặp qua các phần tử của mảng
+        const flowers = ["Hương", "Diệp", "Lan", "Đào"]
+        for(let i in flowers){
+            console.log("Hoa",flowers[i])
+        }
+
+        //- Lặp qua các thuộc tính của 1 đối tượng
+        let student = {
+            "id":101,
+            "name": "Lê Văn A",
+            "age":20
+        }
+        for(let i in student){
+            console.log(i,":",student[i])
+        }
+
+
+        //5. Cấu trúc lặp for...of
+        //Dùng để lặp qua các phần tử của mảng hoặc các kí tự của 1 chuỗi
+        const products = ["Máy tính", "Máy in", "Điện thoại"]
+        for(let products of products){
+            console.log(products)
+        }
+        //Lặp qua các kí tự của 1 chuỗi 
+        const str = "Dai Nam"
+        for(let s of str){
+            console.log(s)
+        }
+
+        //6. Thoát ra khỏi vòng lặp: break, continue
+    </script>
+</body>
+</html>
