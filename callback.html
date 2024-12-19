@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    <script>
+        //Callback là gì?
+        //1. Là 1 hàm
+        //2. Truyền như 1 đối số cho 1 hàm khác
+        function myFunction(name,Callback){
+            console.log("Xin chào!",name)
+            Callback()
+        }
+        function myCallback(){
+            console.log("Chúc bạn một ngày vui vẻ <3")
+        }
+        // Gọi hàm
+        myFunction("Tuấn",myCallback)
+
+        //- Ví dụ 1
+        function first(){
+            console.log(1)
+        }
+        function second(){
+            console.log(2)
+        }
+        //gọi hàm
+        first()
+        second()
+        // Output
+        //1
+        //2
+
+
+    //- Ví dụ 2
+    let outputOne = function(){
+        console.log(1)
+    }
+    function firstChoice(){
+        setTimeout(outputOne,1000)
+    }
+    function secondChoice(){
+        console.log(2)
+    }
+    //gọi hàm
+    //first()
+    //second()
+
+    //-Ví dụ 3
+    let myFunction = function(){
+        console.log(16)
+    }
+    function index1(callback){
+        setTimeout()(=>{
+            console.log(1)
+            callback()
+        },1000)
+    }
+    function index2(){
+        console.log(2)
+    }
+    </script>
+</body>
+</html>
