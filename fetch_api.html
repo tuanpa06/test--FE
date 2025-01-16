@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch.API</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 10px auto;
+        }
+        .container h2 {
+            text-align: center;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .btn-delete {
+            background-color: #DC4C64;
+            padding: 5px 8px;
+            border: 1px solid #DC4C64;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .btn-delete:hover {
+            background-color: #D50000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Danh sách bài viết</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="result">
+                <!-- Dữ liệu lấy từ API sẽ được chèn vào đây -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Xác định url của API
+        const url = 'https://jsonplaceholder.typicode.com/posts';
+        // Lấy dữ liệu từ API
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Lỗi: " + response.statusText);
+                }
+                return response.json(); // Chuyển response thành công JSON
+            })
+            .then(data => {
+                data.forEach(post => {
+                    // Tạo thẻ tr
+                    let tr = document.createElement("tr"); //<tr></tr>
+                    // Thêm nội dung vào tr
+                    tr.innerHTML = `
+                    <td>${post.id}</td>
+                    <td>${post.title}</td>
+                    <td>${post.body}</td>
+                    <td><button class="btn-delete">Delete</button></td>
+                    `;
+                    // Thêm tr vào tbody
+                    document.getElementById("result").appendChild(tr);
+
+                    // Xử lý sự kiện người dùng bấm vào nút delete
+                    tr.querySelector(".btn-delete").addEventListener('click', () => {
+                        if (confirm(`Bạn có đồng ý xóa bài viết ${post.id}? `)) {
+                            fetch(`${url}/${post.id}`, { method: 'DELETE' })
+                                .then(response => {
+                                    if (!response.ok) {
+throw new Error("Không thể xóa bài viết");
+                                    }
+                                    // Xóa tr khỏi DOM sau khi xóa thành công từ API
+                                    document.getElementById("result").removeChild(tr);
+                                })
+                                .catch(error => {
+                                    console.log("Lỗi:", error);
+                                });
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.log("Lỗi khi lấy dữ liệu:", error);
+            });
+    </script>
+
+</body>
+</html>
